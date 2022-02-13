@@ -29,22 +29,24 @@ public class HunterController : MonoBehaviour
     public Sprite[] victorySprites;
 
     int roundNumber = 1;
-     public int totalTrials = 10;
+    // public int totalTrials = 10;
 
     public int totalHits;
     int ducksCreated;
     bool isRoundOver;
+    public TextMeshProUGUI timeText;
 
     public TextMeshProUGUI roundText, scoreText, hitsText;
     int score, hits, totalClicks;
 
 
-
+    
 
     // Start is called before the first frame update
     void Start()
     {
         Instance = this;
+
         //rb = GetComponent<Rigidbody2D>();
     }
 
@@ -67,10 +69,15 @@ public class HunterController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
             totalClicks++;
-
+    
         scoreText.text = score.ToString("000");
         hitsText.text = hits.ToString() + "/" + totalClicks.ToString();
         roundText.text = roundNumber.ToString();
+        if (roundNumber == finalRound + 1)
+        {
+            roundText.text = "NEXT LEVEL";
+        }
+        NextScene();
     }
 
     /*void FixedUpdate()
@@ -98,17 +105,29 @@ public class HunterController : MonoBehaviour
     }
     IEnumerator TimeUp()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(25f);
         DuckBehavior[] ducks = FindObjectsOfType<DuckBehavior>();
         for (int i = 0; i < ducks.Length; i++)
         {
             ducks[i].Timeup();
         }
+
+        if (ducksCreated <= 0)
+        {
+            if (!isRoundOver)
+            {
+                StopCoroutine(TimeUp());
+                StartCoroutine(RoundOver()); 
+            }
+        }
+
         bg.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         bg.color = blueColor;
-        if (!isRoundOver)
-            StartCoroutine(RoundOver());
+        
+            
+         SceneManager.LoadSceneAsync("LoseScreen");   
+            
     }
 
     public void HitDuck()

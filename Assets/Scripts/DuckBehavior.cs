@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DuckBehavior : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class DuckBehavior : MonoBehaviour
     Rigidbody2D rb;
     bool isDead;
     bool startedFalling;
+    public TextMeshProUGUI timeText;
+        
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +42,8 @@ public class DuckBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         if (!isDead)
         {
             if (Vector3.Distance(transform.position, target) > 0)
@@ -58,6 +64,7 @@ public class DuckBehavior : MonoBehaviour
             if (timeActive > 0)
             {
                 timeActive -= Time.deltaTime;
+                
             }
 
             UpdateSprite();
@@ -69,6 +76,12 @@ public class DuckBehavior : MonoBehaviour
                     transform.position = Vector3.MoveTowards(transform.position, transform.position - transform.up, 10 * Time.deltaTime);
                 }
         }
+        
+    }
+
+    void FixedUpdate()
+    {
+        
     }
 
      public void Timeup()
@@ -135,8 +148,11 @@ public class DuckBehavior : MonoBehaviour
     }
     public void SetTarget()
     {
+        
         if (timeActive > 0)
         {
+            
+
             target = target + new Vector3(Random.Range(-12, 12), Random.Range(-12, 12), 0);
             if (target.x > 8)
             {
@@ -157,6 +173,11 @@ public class DuckBehavior : MonoBehaviour
                 target.y = -2;
             }
         }
+    }
+
+    void TimerReader()
+    {
+        timeText.text = timeActive.ToString();
     }
 }
         
