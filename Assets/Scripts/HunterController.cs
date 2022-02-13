@@ -65,8 +65,8 @@ public class HunterController : MonoBehaviour
 
     void Update()
     {
-        scoreText.text = score.ToString("000");
-        hitsText.text = hits.ToString() + "/" + totalClicks.ToString();
+        //scoreText.text = score.ToString("000");
+        //hitsText.text = hits.ToString() + "/" + totalClicks.ToString();
     }
 
     void FixedUpdate()
