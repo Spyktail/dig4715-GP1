@@ -86,10 +86,11 @@ public class HunterController : MonoBehaviour
         rb.AddForce(movement * crosshairSpeed);
     }*/
    
-
+    int duckCreationCount = 2;
     public void CallCreateDucks()
     {
-        StartCoroutine(CreateDucks(2));
+        StartCoroutine(CreateDucks(duckCreationCount));
+        duckCreationCount++;
     }
 
     IEnumerator CreateDucks(int _count)
@@ -105,7 +106,7 @@ public class HunterController : MonoBehaviour
     }
     IEnumerator TimeUp()
     {
-        yield return new WaitForSeconds(25f);
+        yield return new WaitForSeconds(30f);
         DuckBehavior[] ducks = FindObjectsOfType<DuckBehavior>();
         for (int i = 0; i < ducks.Length; i++)
         {

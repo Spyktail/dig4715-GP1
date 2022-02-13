@@ -802,6 +802,7 @@ MonoBehaviour:
   totalHits: 0
   scoreText: {fileID: 259064751}
   hitsText: {fileID: 239247100}
+  finalRound: 5
 --- !u!4 &898005597
 Transform:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class HellHunter : MonoBehaviour
 {
@@ -43,11 +44,19 @@ public class HellHunter : MonoBehaviour
 
         scoreText.text = score.ToString("000");
         hitsText.text = hits.ToString() + "/" + totalClicks.ToString();
+        roundText.text = roundNumber.ToString();
+        if (roundNumber == finalRound + 1)
+        {
+            roundText.text = "YOU WIN!";
+        }
+        NextScene();
     }
 
+    int duckCreationCount = 2;
     public void CallCreateDucks()
     {
-        StartCoroutine(CreateDucks(2));
+        StartCoroutine(CreateDucks(duckCreationCount));
+        duckCreationCount += 2;
     }
 
     IEnumerator CreateDucks(int _count)
@@ -63,7 +72,7 @@ public class HellHunter : MonoBehaviour
     }
     IEnumerator TimeUp()
     {
-        yield return new WaitForSeconds(30f);
+        yield return new WaitForSeconds(40f);
         DuckBehavior[] ducks = FindObjectsOfType<DuckBehavior>();
         for (int i = 0; i < ducks.Length; i++)
         {
@@ -74,6 +83,8 @@ public class HellHunter : MonoBehaviour
         bg.color = blackColor;
         if (!isRoundOver)
             StartCoroutine(RoundOver());
+
+        SceneManager.LoadSceneAsync("LoseScreen");
     }
 
     public void HitDuck()
@@ -127,6 +138,16 @@ public class HellHunter : MonoBehaviour
         hellHoundMiss.SetActive(false);
         CallCreateDucks();
         isRoundOver = false;
+    }
+
+    public int finalRound = 3;
+
+    void NextScene()
+    {
+        if (roundNumber == finalRound + 1)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 }
 
