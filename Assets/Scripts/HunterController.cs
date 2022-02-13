@@ -76,11 +76,14 @@ public class HunterController : MonoBehaviour
     }
 
 
-    void OnFire()
+    public void OnFire()
     {
         totalClicks++;
+        
     }
 
+
+    
 
     public void CallCreateDucks()
     {

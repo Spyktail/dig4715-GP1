@@ -24,6 +24,16 @@ public class DuckBehavior : MonoBehaviour
         
     }
 
+    void OnColliderStay2D(Collider2D collider2D)
+    {
+        HunterController controller = GetComponent<HunterController>();
+        if (controller != null)
+        {
+            Debug.Log("shoot");
+        }
+        //GameObject.FindGameObjectsWithTag("Duck");
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -55,7 +65,7 @@ public class DuckBehavior : MonoBehaviour
         {
             if (startedFalling)
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, transform.position - transform.up, 10*Time.deltaTime);
+                    transform.position = Vector3.MoveTowards(transform.position, transform.position - transform.up, 10 * Time.deltaTime);
                 }
         }
     }
@@ -63,14 +73,14 @@ public class DuckBehavior : MonoBehaviour
      public void Timeup()
     {
         speed *= 2;
-        target = transform.position + new Vector3(0, 20, 0);
+        target = transform.position + new Vector3(0, 10, 0);
     }
 
-    private void OnMouseDown()
+    /* private void OnFire()
     {
         if (!isDead)
             StartCoroutine(Dead());
-    }
+    } */
 
     IEnumerator Dead()
     {
@@ -86,11 +96,11 @@ public class DuckBehavior : MonoBehaviour
         {
             if (transform.position.x - target.x > 0)
             {
-                transform.localScale = new Vector3(-0.7f, 0.7f, 0.7f);
+                transform.localScale = new Vector3(-0.25f, 0.25f, 0.25f);
             }
             else
             {
-                transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+                transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
             }
 
             if (Mathf.Abs(transform.position.x - target.x) < 1)
@@ -120,24 +130,24 @@ public class DuckBehavior : MonoBehaviour
     {
         if (timeActive > 0)
         {
-            target = target + new Vector3(Random.Range(-20, 20), Random.Range(-3, 7), 0);
-            if (target.x > 20)
+            target = target + new Vector3(Random.Range(-12, 12), Random.Range(-12, 12), 0);
+            if (target.x > 8)
             {
-                target.x = 20;
+                target.x = 8;
             }
                 
-            if (target.x < -20)
+            if (target.x < -8)
             {
-                target.x = -20;
+                target.x = -8;
             }
-            if (target.y > 7)
+            if (target.y > 4)
             {
-                target.y = 7;
+                target.y = 4;
             }
 
             if (target.y < -2)
             {
-                target.y = 2;
+                target.y = -2;
             }
         }
     }
