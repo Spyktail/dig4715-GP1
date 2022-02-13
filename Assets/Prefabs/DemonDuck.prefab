@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5257803303860862433}
   - component: {fileID: 6259617750391947077}
   - component: {fileID: 3067746021901589766}
-  - component: {fileID: 8933972824439434654}
   - component: {fileID: 2705670218605000416}
+  - component: {fileID: 623337891159034276}
   m_Layer: 0
   m_Name: DemonDuck
   m_TagString: Untagged
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 5677491295073296107, guid: f2368d919a15e9a48ae698da95f7d9d4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -104,24 +104,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8933972824439434654
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4603544508575079137}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44f7f9b2a72370e419d1f1860d86dbe3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  minXval: -8
-  maxXval: 8
-  maxYval: 5
-  minYval: -5
-  timeActive: 10
 --- !u!61 &2705670218605000416
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -132,7 +114,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -148,3 +130,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.9375, y: 8.377405}
   m_EdgeRadius: 0
+--- !u!114 &623337891159034276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4603544508575079137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23a3562ddea33504d81375f8977b514e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 7
+  minXval: -8
+  maxXval: 8
+  maxYval: 4
+  minYval: -2
+  timeActive: 35

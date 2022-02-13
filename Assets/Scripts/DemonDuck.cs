@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DuckBehavior : MonoBehaviour
+public class DemonDuck : MonoBehaviour
 {
     public float speed;
     public float minXval;
@@ -102,7 +102,7 @@ public class DuckBehavior : MonoBehaviour
 
     IEnumerator Dead()
     {
-        HunterController.Instance.HitDuck();
+        HellHunter.Instance.HitDuck();
         isDead = true;
         anim.SetTrigger("Die");
         yield return new WaitForSeconds(0.4f);
@@ -178,4 +178,3 @@ public class DuckBehavior : MonoBehaviour
         timeText.text = timeActive.ToString();
     } */
 }
-        

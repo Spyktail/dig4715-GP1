@@ -6,22 +6,11 @@ using TMPro;
 
 public class HellHunter : MonoBehaviour
 {
-    private Rigidbody2D rb;
-    private float moveX;
-    private float moveY;
-    public float crosshairSpeed;
-    
-
-
-
-
-
-
     public static HellHunter Instance;
     public Transform[] spawnPoints;
     public GameObject duckPrefab;
     public SpriteRenderer bg;
-    public Color blueColor;
+    public Color blackColor;
 
     public GameObject hellHoundMiss, hellHoundHit;
     public SpriteRenderer hellHoundSprite;
@@ -45,24 +34,8 @@ public class HellHunter : MonoBehaviour
     void Start()
     {
         Instance = this;
-        //rb = GetComponent<Rigidbody2D>();
-    }
-
-    /*void OnMoveCrosshair(InputValue movementValue)
-    {
-        Vector2 movementVector = movementValue.Get<Vector2>();
-        moveX = movementVector.x;
-        moveY = movementVector.y;
-
-
         
     }
-
-    void OnQuitGame()
-    {
-        Application.Quit();
-    }*/
-
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -71,13 +44,6 @@ public class HellHunter : MonoBehaviour
         scoreText.text = score.ToString("000");
         hitsText.text = hits.ToString() + "/" + totalClicks.ToString();
     }
-
-    /*void FixedUpdate()
-    {
-        Vector3 movement = new Vector3(moveX, moveY, 0.0f);
-        rb.AddForce(movement * crosshairSpeed);
-    }*/
-   
 
     public void CallCreateDucks()
     {
@@ -97,15 +63,15 @@ public class HellHunter : MonoBehaviour
     }
     IEnumerator TimeUp()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(30f);
         DuckBehavior[] ducks = FindObjectsOfType<DuckBehavior>();
         for (int i = 0; i < ducks.Length; i++)
         {
             ducks[i].Timeup();
         }
-        bg.color = Color.red;
+        bg.color = Color.white;
         yield return new WaitForSeconds(0.1f);
-        bg.color = blueColor;
+        bg.color = blackColor;
         if (!isRoundOver)
             StartCoroutine(RoundOver());
     }
@@ -120,9 +86,9 @@ public class HellHunter : MonoBehaviour
         totalHits++;
         score += 10;
         hits++;
-        bg.color = Color.white;
+        bg.color = Color.red;
         yield return new WaitForSeconds(0.1f);
-        bg.color = blueColor;
+        bg.color = blackColor;
         ducksCreated--;
 
         if (ducksCreated <= 0)
