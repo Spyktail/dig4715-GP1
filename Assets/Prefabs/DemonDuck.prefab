@@ -117,10 +117,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  minXval: 0
-  maxXval: 0
-  maxYval: 0
-  timeActive: 0
+  minXval: -8
+  maxXval: 8
+  maxYval: 5
+  minYval: -5
+  timeActive: 10
 --- !u!61 &2705670218605000416
 BoxCollider2D:
   m_ObjectHideFlags: 0
