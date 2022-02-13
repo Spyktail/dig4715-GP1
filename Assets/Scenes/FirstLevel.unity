@@ -123,8 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
-<<<<<<< HEAD
-=======
 --- !u!1 &133786087
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,7 +215,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: Round 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -454,7 +452,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0, g: 0.9013953, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.88063455, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -863,7 +861,7 @@ MonoBehaviour:
   - {fileID: 1964535464}
   duckPrefab: {fileID: 168197314}
   bg: {fileID: 471716010}
-  blueColor: {r: 0.05842829, g: 0.6705434, b: 0.9528302, a: 0}
+  blueColor: {r: 0, g: 0.69411767, b: 1, a: 0}
   dogMiss: {fileID: 0}
   dogHit: {fileID: 0}
   dogSprite: {fileID: 0}
@@ -1064,7 +1062,6 @@ Transform:
   m_Father: {fileID: 1483686700}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> 211e1d0d5808b70ed4e74a5d8550a4f64af6004a
 --- !u!1 &2053199652
 GameObject:
   m_ObjectHideFlags: 0
