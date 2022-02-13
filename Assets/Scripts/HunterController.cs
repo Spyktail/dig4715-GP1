@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class HunterController : MonoBehaviour
 {
@@ -27,7 +28,6 @@ public class HunterController : MonoBehaviour
     public SpriteRenderer dogSprite;
     public Sprite[] victorySprites;
 
-    public TextMeshProUGUI roundText;
     int roundNumber = 1;
      public int totalTrials = 10;
 
@@ -35,7 +35,7 @@ public class HunterController : MonoBehaviour
     int ducksCreated;
     bool isRoundOver;
 
-    public TextMeshProUGUI scoreText, hitsText;
+    public TextMeshProUGUI roundText, scoreText, hitsText;
     int score, hits, totalClicks;
 
 
@@ -70,6 +70,7 @@ public class HunterController : MonoBehaviour
 
         scoreText.text = score.ToString("000");
         hitsText.text = hits.ToString() + "/" + totalClicks.ToString();
+        roundText.text = roundNumber.ToString();
     }
 
     /*void FixedUpdate()
@@ -159,7 +160,18 @@ public class HunterController : MonoBehaviour
         yield return new WaitForSeconds(2f);
         dogHit.SetActive(false);
         dogMiss.SetActive(false);
+        roundNumber++;
         CallCreateDucks();
         isRoundOver = false;
+    }
+
+    public int finalRound = 3;
+
+    void NextScene()
+    {
+        if (roundNumber == finalRound + 1)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 }

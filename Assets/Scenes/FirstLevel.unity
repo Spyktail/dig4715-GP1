@@ -936,7 +936,7 @@ MonoBehaviour:
   - {fileID: 2046070220}
   - {fileID: 133786088}
   - {fileID: 1964535464}
-  duckPrefab: {fileID: 0}
+  duckPrefab: {fileID: 5666408152343233801, guid: 0e05d3cb99d0e9c4a8faab2cedda5846, type: 3}
   bg: {fileID: 471716010}
   blueColor: {r: 0, g: 0.69411767, b: 1, a: 0}
   dogMiss: {fileID: 0}
@@ -945,11 +945,12 @@ MonoBehaviour:
   victorySprites:
   - {fileID: 0}
   - {fileID: 0}
-  roundText: {fileID: 193721505}
   totalTrials: 10
   totalHits: 0
+  roundText: {fileID: 193721505}
   scoreText: {fileID: 1069202776}
   hitsText: {fileID: 701580328}
+  finalRound: 3
 --- !u!1 &1763521890
 GameObject:
   m_ObjectHideFlags: 0
