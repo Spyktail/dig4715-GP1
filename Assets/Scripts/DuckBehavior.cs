@@ -8,6 +8,7 @@ public class DuckBehavior : MonoBehaviour
     public float minXval;
     public float maxXval;
     public float maxYval;
+    public float minYval;
     Vector3 target;
 
     public float timeActive;
@@ -24,7 +25,7 @@ public class DuckBehavior : MonoBehaviour
         
     }
 
-    void OnColliderStay2D(Collider2D collider2D)
+    /* void OnColliderStay2D(Collider2D collider2D)
     {
         HunterController controller = GetComponent<HunterController>();
         if (controller != null)
@@ -32,7 +33,7 @@ public class DuckBehavior : MonoBehaviour
             Debug.Log("shoot");
         }
         //GameObject.FindGameObjectsWithTag("Duck");
-    }
+    } */
 
     // Update is called once per frame
     void Update()
@@ -45,7 +46,7 @@ public class DuckBehavior : MonoBehaviour
             }
             else
             {
-                if (transform.position.x > maxXval || transform.position.x < minXval || transform.position.y > maxYval)
+                if (transform.position.x > maxXval || transform.position.x < minXval || transform.position.y > maxYval || transform.position.y < minYval)
                 {
                     Destroy(gameObject);
                 }
@@ -73,7 +74,13 @@ public class DuckBehavior : MonoBehaviour
      public void Timeup()
     {
         speed *= 2;
-        target = transform.position + new Vector3(0, 10, 0);
+        target = transform.position + new Vector3(0, 20, 0);
+    }
+
+    private void OnMouseDown()
+    {
+        if (!isDead)
+            StartCoroutine(Dead());
     }
 
     /* private void OnFire()

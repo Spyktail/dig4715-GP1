@@ -29,7 +29,7 @@ public class HunterController : MonoBehaviour
 
     public TextMeshProUGUI roundText;
     int roundNumber = 1;
-    int totalTrials = 10;
+     public int totalTrials = 10;
 
     public int totalHits;
     int ducksCreated;
@@ -45,10 +45,10 @@ public class HunterController : MonoBehaviour
     void Start()
     {
         Instance = this;
-        rb = GetComponent<Rigidbody2D>();
+        //rb = GetComponent<Rigidbody2D>();
     }
 
-    void OnMoveCrosshair(InputValue movementValue)
+    /*void OnMoveCrosshair(InputValue movementValue)
     {
         Vector2 movementVector = movementValue.Get<Vector2>();
         moveX = movementVector.x;
@@ -61,29 +61,23 @@ public class HunterController : MonoBehaviour
     void OnQuitGame()
     {
         Application.Quit();
-    }
+    }*/
 
     void Update()
     {
-        //scoreText.text = score.ToString("000");
-        //hitsText.text = hits.ToString() + "/" + totalClicks.ToString();
+        if (Input.GetMouseButtonDown(0))
+            totalClicks++;
+
+        scoreText.text = score.ToString("000");
+        hitsText.text = hits.ToString() + "/" + totalClicks.ToString();
     }
 
-    void FixedUpdate()
+    /*void FixedUpdate()
     {
         Vector3 movement = new Vector3(moveX, moveY, 0.0f);
         rb.AddForce(movement * crosshairSpeed);
-    }
-
-
-    public void OnFire()
-    {
-        totalClicks++;
-        
-    }
-
-
-    
+    }*/
+   
 
     public void CallCreateDucks()
     {
