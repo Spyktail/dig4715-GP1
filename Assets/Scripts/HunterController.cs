@@ -65,11 +65,8 @@ public class HunterController : MonoBehaviour
 
     void Update()
     {
-    if (Input.GetMouseButtonDown(0))
-        totalClicks++;
-
-    scoreText.text = score.ToString("000");
-     hitsText.text = hits.ToString() + "/" + totalClicks.ToString();
+        scoreText.text = score.ToString("000");
+        hitsText.text = hits.ToString() + "/" + totalClicks.ToString();
     }
 
     void FixedUpdate()
@@ -79,7 +76,10 @@ public class HunterController : MonoBehaviour
     }
 
 
-    
+    void OnFire()
+    {
+        totalClicks++;
+    }
 
 
     public void CallCreateDucks()
