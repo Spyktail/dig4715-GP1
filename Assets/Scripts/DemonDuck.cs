@@ -19,6 +19,7 @@ public class DemonDuck : MonoBehaviour
     bool startedFalling;
 
     public AudioSource audioSource;
+    public AudioClip demonDeath;
     public ParticleSystem particleSystem;
         
 
@@ -119,6 +120,7 @@ public class DemonDuck : MonoBehaviour
         HellHunter.Instance.HitDuck();
         isDead = true;
         anim.SetTrigger("Die");
+        audioSource.PlayOneShot(demonDeath);
         yield return new WaitForSeconds(0.4f);
         startedFalling = true;
         Destroy(gameObject, 3f);

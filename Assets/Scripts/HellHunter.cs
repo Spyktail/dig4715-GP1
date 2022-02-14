@@ -31,7 +31,8 @@ public class HellHunter : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip shotty;
-
+    public AudioClip evilLaugh;
+    public AudioClip yay;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +54,7 @@ public class HellHunter : MonoBehaviour
         roundText.text = "Wave " + roundNumber.ToString();
         if (roundNumber == finalRound + 1)
         {
+            audioSource.PlayOneShot(yay);
             roundText.text = "YOU WIN!";
         }
         NextScene();
@@ -63,6 +65,7 @@ public class HellHunter : MonoBehaviour
     {
         StartCoroutine(CreateDucks(duckCreationCount));
         duckCreationCount += 2;
+        audioSource.PlayOneShot(evilLaugh);
     }
 
     IEnumerator CreateDucks(int _count)

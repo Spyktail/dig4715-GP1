@@ -151,6 +151,7 @@ MonoBehaviour:
   minYval: -2
   timeActive: 45
   audioSource: {fileID: 4014857771224323553}
+  demonDeath: {fileID: 8300000, guid: bf04afd0ea63d41488ada4cda2623173, type: 3}
   particleSystem: {fileID: 2044088870158549655, guid: 0f7bed503b902154d80a524af167cb6d, type: 3}
 --- !u!82 &4014857771224323553
 AudioSource:
