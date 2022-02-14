@@ -804,6 +804,7 @@ MonoBehaviour:
   scoreText: {fileID: 259064751}
   hitsText: {fileID: 239247100}
   audioSource: {fileID: 898005598}
+  shotty: {fileID: 8300000, guid: 9c6ec79165479be4f944bca72cf14014, type: 3}
   finalRound: 5
 --- !u!4 &898005597
 Transform:

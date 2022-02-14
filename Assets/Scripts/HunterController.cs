@@ -40,6 +40,8 @@ public class HunterController : MonoBehaviour
     int score, hits, totalClicks;
 
     public AudioSource audioSource;
+    public AudioClip shotty;
+    public AudioClip duckNoise;
     
 
     // Start is called before the first frame update
@@ -68,7 +70,10 @@ public class HunterController : MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
+        {
             totalClicks++;
+            audioSource.PlayOneShot(shotty);
+        }
     
         scoreText.text = "Score: " + score.ToString("000");
         hitsText.text = hits.ToString() + "/" + totalClicks.ToString();
@@ -91,6 +96,7 @@ public class HunterController : MonoBehaviour
     {
         StartCoroutine(CreateDucks(duckCreationCount));
         duckCreationCount++;
+        audioSource.PlayOneShot(duckNoise);
     }
 
     IEnumerator CreateDucks(int _count)

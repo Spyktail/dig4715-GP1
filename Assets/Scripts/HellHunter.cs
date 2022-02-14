@@ -30,6 +30,7 @@ public class HellHunter : MonoBehaviour
 
 
     public AudioSource audioSource;
+    public AudioClip shotty;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +42,11 @@ public class HellHunter : MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
+        {
             totalClicks++;
+            audioSource.PlayOneShot(shotty);
+        }
+            
 
         scoreText.text = "Score: " + score.ToString("000");
         hitsText.text = hits.ToString() + "/" + totalClicks.ToString();

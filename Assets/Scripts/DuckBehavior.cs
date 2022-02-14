@@ -17,6 +17,8 @@ public class DuckBehavior : MonoBehaviour
     Rigidbody2D rb;
     bool isDead;
     bool startedFalling;
+    public AudioSource audioSource;
+    public AudioClip duckDie;
         
 
     // Start is called before the first frame update
@@ -24,6 +26,7 @@ public class DuckBehavior : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         spriteRend = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
         
     }
 
@@ -105,6 +108,7 @@ public class DuckBehavior : MonoBehaviour
         HunterController.Instance.HitDuck();
         isDead = true;
         anim.SetTrigger("Die");
+        audioSource.PlayOneShot(duckDie);
         yield return new WaitForSeconds(0.4f);
         startedFalling = true;
         Destroy(gameObject, 3f);

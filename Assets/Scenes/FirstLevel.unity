@@ -1364,6 +1364,8 @@ MonoBehaviour:
   scoreText: {fileID: 1069202776}
   hitsText: {fileID: 701580328}
   audioSource: {fileID: 1483686702}
+  shotty: {fileID: 8300000, guid: 9c6ec79165479be4f944bca72cf14014, type: 3}
+  duckNoise: {fileID: 8300000, guid: aec9e6a8013aebe4fb9b290adea02fac, type: 3}
   finalRound: 3
 --- !u!82 &1483686702
 AudioSource:
