@@ -59,6 +59,12 @@ public class HellHunter : MonoBehaviour
             roundText.text = "YOU WIN!";
         }
         NextScene();
+
+        if (Input.GetKeyDown("Escape"))
+        {
+            Debug.Log("game exit");
+            Application.Quit();
+        }
     }
 
     int duckCreationCount = 2;

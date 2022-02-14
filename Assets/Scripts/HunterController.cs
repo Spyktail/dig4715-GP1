@@ -85,6 +85,12 @@ public class HunterController : MonoBehaviour
             roundText.text = "NEXT LEVEL";
         }
         NextScene();
+
+        if (Input.GetKey("escape"))
+        {
+            Debug.Log("game exit");
+            Application.Quit();
+        }
     }
 
     /*void FixedUpdate()
