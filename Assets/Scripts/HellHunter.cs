@@ -48,6 +48,7 @@ public class HellHunter : MonoBehaviour
             audioSource.PlayOneShot(shotty);
         }
             
+        score = (totalHits * 15) - (totalClicks * 5);
 
         scoreText.text = "Score: " + score.ToString("000");
         hitsText.text = hits.ToString() + "/" + totalClicks.ToString();
