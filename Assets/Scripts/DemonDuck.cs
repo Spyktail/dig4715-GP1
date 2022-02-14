@@ -17,6 +17,9 @@ public class DemonDuck : MonoBehaviour
     Rigidbody2D rb;
     bool isDead;
     bool startedFalling;
+
+    public AudioSource audioSource;
+    public ParticleSystem particleSystem;
         
 
     // Start is called before the first frame update
@@ -24,7 +27,14 @@ public class DemonDuck : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         spriteRend = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
+        particleSystem = GetComponent<ParticleSystem>();
         
+    }
+
+    void Awake()
+    {
+        this.particleSystem.Play();
     }
 
     /* void OnColliderStay2D(Collider2D collider2D)
@@ -44,6 +54,8 @@ public class DemonDuck : MonoBehaviour
 
         if (!isDead)
         {
+            
+
             if (Vector3.Distance(transform.position, target) > 0)
             {
                 transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
@@ -58,6 +70,8 @@ public class DemonDuck : MonoBehaviour
                 SetTarget();
 
             }
+
+            
 
             if (timeActive > 0)
             {

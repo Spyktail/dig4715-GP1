@@ -29,12 +29,13 @@ public class HellHunter : MonoBehaviour
     int score, hits, totalClicks;
 
 
-
+    public AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
         Instance = this;
+        audioSource = GetComponent<AudioSource>();
         
     }
     void Update()
@@ -42,9 +43,9 @@ public class HellHunter : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
             totalClicks++;
 
-        scoreText.text = score.ToString("000");
+        scoreText.text = "Score: " + score.ToString("000");
         hitsText.text = hits.ToString() + "/" + totalClicks.ToString();
-        roundText.text = roundNumber.ToString();
+        roundText.text = "Wave " + roundNumber.ToString();
         if (roundNumber == finalRound + 1)
         {
             roundText.text = "YOU WIN!";
@@ -136,6 +137,7 @@ public class HellHunter : MonoBehaviour
         yield return new WaitForSeconds(2f);
         hellHoundHit.SetActive(false);
         hellHoundMiss.SetActive(false);
+        roundNumber++;
         CallCreateDucks();
         isRoundOver = false;
     }

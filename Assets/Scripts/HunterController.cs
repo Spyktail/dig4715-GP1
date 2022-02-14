@@ -39,14 +39,14 @@ public class HunterController : MonoBehaviour
     public TextMeshProUGUI roundText, scoreText, hitsText;
     int score, hits, totalClicks;
 
-
+    public AudioSource audioSource;
     
 
     // Start is called before the first frame update
     void Start()
     {
         Instance = this;
-
+        audioSource = GetComponent<AudioSource>();
         //rb = GetComponent<Rigidbody2D>();
     }
 
@@ -70,9 +70,9 @@ public class HunterController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
             totalClicks++;
     
-        scoreText.text = score.ToString("000");
+        scoreText.text = "Score: " + score.ToString("000");
         hitsText.text = hits.ToString() + "/" + totalClicks.ToString();
-        roundText.text = roundNumber.ToString();
+        roundText.text = "Wave " + roundNumber.ToString();
         if (roundNumber == finalRound + 1)
         {
             roundText.text = "NEXT LEVEL";
