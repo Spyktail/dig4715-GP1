@@ -72,7 +72,7 @@ public class HellHunter : MonoBehaviour
     }
     IEnumerator TimeUp()
     {
-        yield return new WaitForSeconds(40f);
+        yield return new WaitForSeconds(45f);
         DuckBehavior[] ducks = FindObjectsOfType<DuckBehavior>();
         for (int i = 0; i < ducks.Length; i++)
         {
